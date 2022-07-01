@@ -1,5 +1,5 @@
 tinymce.init({
-    selector: '#message',
+    selector: '#myTextarea',
     width: 600,
     height: 300,
     
