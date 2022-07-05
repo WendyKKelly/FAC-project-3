@@ -12,7 +12,10 @@
     text-shadow:#54b3d6
   }
   
-  
+  #Comment {
+    width: 400px;
+    height: auto;
+  }
 
   html, body {
     color: #000;
@@ -48,72 +51,21 @@
     }
     .child {
         width: 400px;  
-        height: 400px; 
+        height: auto; 
         margin: auto;  
     }
     
-    .description {
-      max-height: 50px;
-      background: color #000;
-      display: none;
-    }
-    .description2 {
-      max-height: 50px;
-      display: none;
-    }
-    .description3 {
-      max-height: 50px;
-      display: none;
-    }
-    .description4 {
-      max-height: 50px;
-      display: none;
-    }
-    .description5 {
-      max-height: 50px;
-      display: none;
-    }
-    .description6 {
-      max-height: 50px;
-      display: none;
-    }
+
+
+  
 
     .pro-1{
         width: 400px;  
-        height: 400px; 
+        height: auto; 
         margin: auto;  
 background-color: transparent;
     }
-    .pro-2 {
-        width: 400px;  
-        height: 400px; 
-        margin: auto;  
-        background-color: transparent;
-    }
-    .pro-3 {
-        width: 400px;  
-        height: 400px; 
-        margin: auto;  
-        background-color:transparent;
-    }
-    .pro-4 {
-        width: 400px;  
-        height: 400px; 
-        margin: auto;  
-        background-color:transparent;
-    }
-    .pro-5 {
-        width: 400px;  
-        height: 400px; 
-        margin: auto;  
-        background-color: transparent;
-    }
-    .pro-6 {
-        width: 400px;  
-        height: 400px; 
-        margin: auto;  
-        background-color:transparent;
-    }
+    
     /*.item-c {
       grid-area: sidebar;
       @media only screen and ( min-width: 480px ) and ( max-width: 767px ) {
