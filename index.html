@@ -22,13 +22,13 @@
 <main class="item-b">
    
         
-     <form action="comment.php" >
-        <label for="username">Enter your full name</label>
-        <input type="text" id="username">
+     <form action="comment.php" method="GET">
+        <label for="username" >Enter your full name</label>
+        <input type="text" id="username" name="name">
         <p class="hint hidden" id="usernameHint" >Your username cannot contain punctuation</p>
       
         <label for="email">Enter your email address</label>
-        <input type="text" id="email">
+        <input type="text" id="email" name="email">
         <p class="hint hidden" id="emailHint">Please enter a valid email address</p>
       <div>
         <textarea type="text" name="myTextarea" maxlength="200" spellcheck="true" aria-live="assertive" id="myTextarea"></textarea></div>
