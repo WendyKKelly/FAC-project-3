@@ -44,22 +44,12 @@
       
       
     }
-    .child {
-        width: 400px;  
-        height: auto; 
-        margin: auto;  
-    }
     
 
 
   
 
-    .pro-1{
-        width: 400px;  
-        height: auto; 
-        margin: auto;  
-background-color: transparent;
-    }
+  
     
     /*.item-c {
       grid-area: sidebar;
