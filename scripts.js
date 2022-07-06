@@ -15,46 +15,52 @@ tinymce.init({
     
   });
 
-  const btn = document.querySelector('button');
+  const commentBox = document.querySelector("#commentBox");
+  if(commentBox) {
+    commentBox.addEventListener("submit", function(e) {
+      submitForm(e, this);
+    });
+  }
+  async function submitForm(e, form) {
+    e.preventDefault();
+    const btnSubmit = document.getElementById('btnSubmit');
+    btnSubmit.disabled = true;
+    setTimeout(() => btnSubmit.disabled = false, 2000);
 
-function sendData( data ) {
-  console.log( 'Sending data' );
+    const jsonFormData = buildJsonFormData(form);
 
-  const XHR = new XMLHttpRequest();
+    const headers = buildHeaders();
 
-  let urlEncodedData = "",
-      urlEncodedDataPairs = [],
-      name;
+    const response = await fetchService.performPostHttpRequest('https://jsonplaceholder.tyicode.come/posts', headers, jsonFormData);
 
-  // Turn the data object into an array of URL-encoded key/value pairs.
-  for( name in data ) {
-    urlEncodedDataPairs.push( encodeURIComponent( name ) + '=' + encodeURIComponent( data[name] ) );
+    if(response)
+    window.location = '/success.html?Name-$[response.Name]$Email=$[response.Email]&id=$[response.id]';
+    else
+    alert('an error occured.');
   }
 
-  // Combine the pairs into a single string and replace all %-encoded spaces to
-  // the '+' character; matches the behavior of browser form submissions.
-  urlEncodedData = urlEncodedDataPairs.join( '&' ).replace( /%20/g, '+' );
+  function buildJsonFormData(form) {
+    const jsonFormData = { };
+    for(const pair of new FormData(form)) {
+      jsonFormData[pair[0]] = pair[1];
+    }
+    return jsonFormData;
+  }
 
-  // Define what happens on successful data submission
-  XHR.addEventListener( 'load', function(event) {
-    alert( 'Yeah! Data sent and response loaded.' );
-  } );
-
-  // Define what happens in case of error
-  XHR.addEventListener( 'error', function(event) {
-    alert( 'Oops! Something went wrong.' );
-  } );
-
-  // Set up our request
-  XHR.open( 'POST', 'https://example.com/cors.php' );
-
-  // Add the required HTTP header for form data POST requests
-  XHR.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
-
-  // Finally, send our data.
-  XHR.send( urlEncodedData );
-}
-
-btn.addEventListener( 'click', function() {
-  sendData( {test:'ok'} );
-} )
+  async function performPostHttpRequest(fetchLink, body) {
+    if(!fetchLink || !body) {
+      throw new Error("One or more POST request parameters was not passed.");
+    }
+    try {
+      const rawResponse = await fetch(fetchLink, {
+        method: "POST",
+        body: JSON.stringify(body)
+      });
+      const content = await rawResponse.json();
+      return content;
+    }
+    catch(err) {
+      console.error(`Error at fetch POST: $({err}`);
+      throw err;
+    }
+  }
