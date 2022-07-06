@@ -121,7 +121,7 @@ tinymce.init({
 	    editor.on('submit', function(event) {
 		  var numChars = tinymce.activeEditor.plugins.wordcount.body.getCharacterCount();
 		  if (numChars > max) {
-        document.getElementById('textarea').classList.add('didLoad');
+      
 			alert("Maximum " + max + " characters allowed.");
 			event.preventDefault();
 			return false;
