@@ -338,3 +338,8 @@ a:active { color: #0cf; }
             color: red;
             
         }
+        #textarea p
+        {
+          color: green;
+
+        }

@@ -29,8 +29,8 @@
         <label for="email">Enter your email address</label>
         <input type="text" id="email" name="email">
         <p class="hint hidden" id="emailHint">Please enter a valid email address</p>
-      <div class="didLoad">
-        <textarea type="text" name="textarea" maxlength="20" spellcheck="true" aria-live="assertive" class="textarea" id="open-source-plugins"></textarea></div>
+      <div id="textarea" class="didLoad">
+        <textarea type="text" name="textarea" maxlength="20" spellcheck="true" aria-live="assertive"  id="open-source-plugins"></textarea></div>
       
         <button type="submit">Submit</button>
       </form>
@@ -121,7 +121,7 @@ tinymce.init({
 	    editor.on('submit', function(event) {
 		  var numChars = tinymce.activeEditor.plugins.wordcount.body.getCharacterCount();
 		  if (numChars > max) {
-        document.getElementsByClassName('textarea').classList.add('didLoad');
+        document.getElementById('textarea').classList.add('didLoad');
 			alert("Maximum " + max + " characters allowed.");
 			event.preventDefault();
 			return false;
