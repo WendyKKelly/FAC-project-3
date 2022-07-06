@@ -9,13 +9,13 @@ document.getElementById("displayDateTime").innerHTML = ' Today is ' + daylist[da
 
 
 tinymce.init({
-    selector: '#myTextarea',
+    selector: '#textarea',
     width: 600,
     height: 300,
     
   });
 
-  const commentBox = document.querySelector("#commentBox");
+  const commentBox = document.querySelector("#textarea");
   if(commentBox) {
     commentBox.addEventListener("submit", function(e) {
       submitForm(e, this);
