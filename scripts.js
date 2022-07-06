@@ -85,4 +85,4 @@ if (getStats('content').words < 10) {
 
 // Submit the form
 document.forms[0].submit();
-}
+
