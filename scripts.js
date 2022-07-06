@@ -65,21 +65,18 @@ tinymce.init({
     }
   }
 
-const myTextarea = document.getElementById('myTextarea');
-myTextarea.addEventListener('keypress', checkChar, false);
-function checkChar(evt) {
-  const charLimit = evt.charLimit;
-  if (charLimit != 0) {
-    if (charLimit > 175) {
-      evt.preventDefault();
-      displayWarning(
-        "Please use 200 characters only."
-       
-      );
-    }
-  }
-}
 
-document.getElementById('textarea').onkeyup = function () {
-  document.getElementById('count').innerHTML = "Characters left: " + (500 - this.value.length);
-};
+  const textarea = document.querySelector("textarea");
+
+  textarea.addEventListener("input", event => {
+      const target = event.currentTarget;
+      const maxLength = target.getAttribute("maxlength");
+      const currentLength = target.value.length;
+  
+      if (currentLength >= maxLength) {
+          return alert("You have reached the maximum number of characters.");
+      }
+      
+      alert(`${maxLength - currentLength} chars left`);
+  });
+  
