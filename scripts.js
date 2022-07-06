@@ -68,15 +68,13 @@ tinymce.init({
 
   const textarea = document.querySelector("textarea");
 
-  textarea.addEventListener("input", event => {
-      const target = event.currentTarget;
-      const maxLength = target.getAttribute("maxlength");
-      const currentLength = target.value.length;
   
-      if (currentLength >= maxLength) {
-          return alert("You have reached the maximum number of characters.");
-      }
-      
-      alert(`${maxLength - currentLength} chars left`);
-  });
-  
+  // Returns text statistics for the specified editor by id
+function getStats(id) {
+  var body = tinymce.get(id).getBody(), text = tinymce.trim(body.innerText || body.textContent);
+
+  return {
+      chars: text.length,
+      words: text.split(/[\w\u2019\'-]+/).length
+  };
+}
