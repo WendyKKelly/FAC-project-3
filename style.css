@@ -333,3 +333,12 @@ a:active { color: #0cf; }
   [hidden] {
     display: none;
   }
+  .didLoad
+        {
+            width:23px;
+            height:281px;
+            transform:rotate(110deg);
+            -moz-transform:rotate(110deg); /* Firefox 4 */
+            -webkit-transform:rotate(110deg); /* Safari and Chrome */
+            -o-transform:rotate(110deg); /* Opera */
+        }
